@@ -1,0 +1,45 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="max.contenttypetest">
+
+  <includeDependencies package="." />
+
+  <i18n:registerTranslations directory="locales" />
+
+  <include package=".browser" />
+
+
+  <genericsetup:registerProfile
+      name="default"
+      title="max.contenttypetest"
+      directory="profiles/default"
+      description="Installs the max.contenttypetest add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="max.contenttypetest-postInstall"
+      title="max.contenttypetest post_install import step"
+      description="Post install import step from max.contenttypetest"
+      handler=".setuphandlers.post_install">
+  </genericsetup:importStep>
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="max.contenttypetest"
+      directory="profiles/uninstall"
+      description="Uninstalls the max.contenttypetest add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="max.contenttypetest-uninstall"
+      title="max.contenttypetest uninstall import step"
+      description="Import step run during ininstalling max.contenttypetest"
+      handler=".setuphandlers.uninstall">
+  </genericsetup:importStep>
+
+</configure>

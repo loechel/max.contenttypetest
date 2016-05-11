@@ -1,0 +1,41 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="max.contenttypetest">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="max.contenttypetest.interfaces.IMaxContenttypetestLayer"
+      />
+
+  <!-- Publish static files -->
+  <browser:resourceDirectory
+      name="max.contenttypetest"
+      directory="static"
+      />
+
+  <browser:page
+      name="view"
+      for="max.contenttypetest.interfaces.INestedTest"
+      permission="zope2.View"
+      class=".views.NestedTestView"
+      />
+
+  <browser:page
+      name="view"
+      for="max.contenttypetest.interfaces.ITable"
+      permission="zope2.View"
+      class=".views.TableView"
+      />
+
+  <browser:page
+      name="view"
+      for="max.contenttypetest.interfaces.IRow"
+      permission="zope2.View"
+      class=".views.RowView"
+      />
+
+</configure>

@@ -1,0 +1,5 @@
+====================
+max.contenttypetest
+====================
+
+User documentation

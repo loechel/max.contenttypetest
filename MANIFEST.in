@@ -1,0 +1,3 @@
+graft src/max
+graft docs/
+include *.cfg *.rst *.in
