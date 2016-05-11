@@ -70,6 +70,12 @@ registerFactoryAdapter(ITable, Table)
 
 class INestedTest(Interface):
 
+    title = schema.TextLine(
+        title=_(u"Title"),
+        description=_(u"Description"),
+        required=True,
+    )
+
     nested = schema.List(
         title=_(u"Nested Objects"),
         value_type=schema.Object(schema=ITable),

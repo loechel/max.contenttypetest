@@ -2,10 +2,32 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      metal:use-macro="context/main_template/macros/master">
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="max.contenttypetest">
 
-    <metal:block fill-slot="content-core">
-            XXX - this text comes below title and description
-    </metal:block>
+  <metal:block fill-slot="content-core">
+    <table>
+      <thead>
+        <tr>
+          <th i18n:translate="">Course</th>
+          <th i18n:translate="">ECTS</th>
+          <th i18n:translate="">Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tal:repeat="row view/rows">
+          <td tal:content="row/course"></td>
+          <td tal:content="row/ects"></td>
+          <td tal:content="row/grade"></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th i18n:translate="" colspan="2">Average</th>
+          <th tal:content="view/average">Average Value</th>
+        </tr>
+      </tfoot>
+    </table>
+  </metal:block>
 
 </html>

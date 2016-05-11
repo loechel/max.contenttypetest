@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
@@ -24,6 +25,11 @@ class TableView(BrowserView):
     def __call__(self):
         return self.template()
 
+    def rows(self):
+        return self.context.row
+
+    def average(self):
+        return self.context.average
 
 class RowView(BrowserView):
 
